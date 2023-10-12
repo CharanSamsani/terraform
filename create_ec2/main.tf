@@ -10,7 +10,12 @@ resource "aws_instance" "charan"{
   }
 }
 
-output "ip" {
+output "ec2_name" {
+  description = "Instance name"
+  value = aws_instance.charan.tags.Name
+}
+
+output "public_ip_addr" {
   description = "public ip address"
   value = aws_instance.charan.public_ip
 }
