@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_instance" "charan"{
   instance_type = "t2.micro"
-  ami = "ami-0c55b159cbfafe1f0"
+  ami = "ami-0c42696027a8ede58"
 }
 
 output "ip" {
