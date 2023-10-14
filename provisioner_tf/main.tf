@@ -105,6 +105,7 @@ resource "aws_instance" "myinstance" {
       "echo 'Hello from Charan'",
       "sudo yum update -y",
       "sudo yum install java-1.8* -y",
+      "sudo yum install git",
       "cd /opt/",
       "sudo wget -P /opt https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.92/bin/apache-tomcat-7.0.92.tar.gz",
       "sudo tar -xvzf apache-tomcat-7.0.92.tar.gz -C /opt",
@@ -112,7 +113,7 @@ resource "aws_instance" "myinstance" {
       "sudo rm -rf apache-tomcat-7.0.92.tar.gz",
       "sudo wget -P /opt https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz",
       "sudo tar -xvzf apache-maven-3.8.8-bin.tar.gz -C /opt",
-      "sudo mv apache-maven-3.8.8-bin maven",
+      "sudo mv apache-maven-3.8.8 maven",
       "sudo rm -rf apache-maven-3.8.8-bin.tar.gz",
       "sudo touch java_installed_and_tomcat,maven_downloaded.txt"
     ]
