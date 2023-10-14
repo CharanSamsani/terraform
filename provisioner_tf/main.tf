@@ -95,7 +95,7 @@ resource "aws_instance" "myinstance" {
 
   connection {
     type = "ssh"
-    host = self.public_dns
+    host = self.public_ip
     user = var.username
     private_key = file("~/.ssh/id_rsa.pub")
   }
