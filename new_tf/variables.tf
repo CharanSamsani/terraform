@@ -3,6 +3,6 @@ variable "cidr" {
 }
 
 variable "username" {
-  default = "Charan"
+  default = "ec2-user"
   type = string 
 }

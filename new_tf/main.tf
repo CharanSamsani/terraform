@@ -102,7 +102,7 @@ resource "aws_instance" "myinstance" {
 
   provisioner "file" {
     source = "app.py"
-    destination = "/home/Charan/app.py"
+    destination = "/home/ec2-user/app.py"
   }
 
   provisioner "remote-exec" {
@@ -110,7 +110,7 @@ resource "aws_instance" "myinstance" {
       "echo 'Hello from Charan'",
       "sudo yum update -y",
       "sudo yum install python3-pip -y",
-      "cd /home/Charan",
+      "cd /home/ec2-user",
       "sudo pip3 install flask",
       "sudo python3 app.py &"
     ]
