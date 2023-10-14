@@ -95,7 +95,7 @@ resource "aws_instance" "myinstance" {
 
     user_data = <<-EOF
     #!/bin/bash
-    echo 'Hello from Charan'
+    echo "Hello from Charan"
     sudo yum update -y
     sudo yum install java-1.8* -y
     cd /opt/
