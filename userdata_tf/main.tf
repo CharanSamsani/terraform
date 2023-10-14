@@ -105,7 +105,7 @@ resource "aws_instance" "myinstance" {
     sudo rm -rf apache-tomcat-7.0.92.tar.gz
     sudo wget -P /opt https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
     sudo tar -xvzf apache-maven-3.8.8-bin.tar.gz -C /opt
-    sudo mv apache-maven-3.8.8-bin maven
+    sudo mv apache-maven-3.8.8 maven
     sudo rm -rf apache-maven-3.8.8-bin.tar.gz
     sudo touch /opt/java_installed_and_tomcat_maven_downloaded.txt
     EOF
