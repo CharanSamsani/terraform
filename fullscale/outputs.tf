@@ -1,6 +1,6 @@
 output "instanceID" {
   description = " Instance ID: "
-  value = aws_instance.myinstance.tags.instanceID
+  value = aws_instance.myinstance.tags.Name
 }
 
 output "instanceType" {
