@@ -1,16 +1,19 @@
 resource "aws_key_pair" "mykey" {
-  key_name = "mykey"
+  key_name = "fullscale"
   public_key = file("~/.ssh/id_rsa.pub")
 }
 
 resource "aws_vpc" "myvpc" {
   cidr_block = var.cidr
   tags = {
-    Name = "myvpc"
+    Name = "fullscale"
   }
 }
 
 resource "aws_subnet" "mysubnet" {
+  tags = {
+    Name = "fullscale"
+  }
   vpc_id = aws_vpc.myvpc.id
   availability_zone = "ap-south-1a"
   cidr_block = "10.0.0.0/24"
@@ -18,10 +21,16 @@ resource "aws_subnet" "mysubnet" {
 }
 
 resource "aws_internet_gateway" "mygateway" {
+  tags = {
+    Name = "fullscale"
+  }
   vpc_id = aws_vpc.myvpc.id
 }
 
 resource "aws_route_table" "myroutetable" {
+  tags = {
+    Name = "fullscale"
+  }
   vpc_id = aws_vpc.myvpc.id
 
   route {
@@ -31,13 +40,16 @@ resource "aws_route_table" "myroutetable" {
 }
 
 resource "aws_route_table_association" "myrtassaciation" {
+  tags = {
+    Name = "fullscale"
+  }
   subnet_id = aws_subnet.mysubnet.id
   route_table_id = aws_route_table.myroutetable.id
 }
 
 resource "aws_security_group" "mysecgroup" {
   tags = {
-    Name = "mysecgroup"
+    Name = "fullscale"
   }
   name = "mysecgroup"
   vpc_id = aws_vpc.myvpc.id
@@ -95,7 +107,7 @@ resource "aws_instance" "myinstance" {
 
   connection {
     type = "ssh"
-    host = self.public_dns
+    host = self.public_ip
     user = var.username
     private_key = file("~/.ssh/id_rsa.pub")
   }
