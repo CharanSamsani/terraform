@@ -11,6 +11,9 @@ resource "aws_vpc" "myvpc" {
 }
 
 resource "aws_subnet" "mysubnet" {
+  tags = {
+    Name = "mysubnet"
+  }
   vpc_id = aws_vpc.myvpc.id
   availability_zone = "ap-south-1a"
   cidr_block = "10.0.0.0/24"
@@ -18,10 +21,16 @@ resource "aws_subnet" "mysubnet" {
 }
 
 resource "aws_internet_gateway" "mygateway" {
+  tags = {
+    Name = "mygateway"
+  }
   vpc_id = aws_vpc.myvpc.id
 }
 
 resource "aws_route_table" "myroutetable" {
+  tags = {
+    Name = "myrt"
+  }
   vpc_id = aws_vpc.myvpc.id
 
   route {
@@ -31,6 +40,9 @@ resource "aws_route_table" "myroutetable" {
 }
 
 resource "aws_route_table_association" "myrtassaciation" {
+  tags = {
+    Name = "myrta"
+  }
   subnet_id = aws_subnet.mysubnet.id
   route_table_id = aws_route_table.myroutetable.id
 }
