@@ -9,7 +9,7 @@ resource "aws_vpc" "myvpc" {
     Name = "myvpc"
   }
 }
-
+ 
 resource "aws_subnet" "mysubnet" {
   tags = {
     Name = "mysubnet"
