@@ -120,7 +120,7 @@ resource "aws_instance" "myinstance" {
     sudo tar -xvzf apache-maven-3.8.8-bin.tar.gz -C /opt
     sudo mv apache-maven-3.8.8 maven
     sudo rm -rf apache-maven-3.8.8-bin.tar.gz
-    sudo touch /opt/java_installed_and_tomcat_maven_downloaded.txt
+    sudo touch /opt/java_installed_and_tomcat_maven_downloaded
     EOF
 }
 
