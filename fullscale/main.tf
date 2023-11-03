@@ -120,7 +120,7 @@ resource "aws_instance" "myinstance" {
       "sudo yum install python3-pip -y",
       "cd /home/ec2-user",
       "sudo pip3 install flask",
-      "sudo python3 app.py &"
+      "sudo python3 app.py &" 
     ]
   }
 }
