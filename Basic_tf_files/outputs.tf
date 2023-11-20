@@ -5,7 +5,7 @@ output "ec2_name" {
 
 output "public_ip_addr" {
   description = "public ip address"
-  value = aws_instance.charan.public_ip 
+  value = aws_instance.charan.public_ip
 }
 
 output "ec2_state" {
